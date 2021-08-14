@@ -1,23 +1,28 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+    <div >
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- <h1>EXAMPLE!</h1> -->
+        <Home />
+
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+import Home from '../../../src/App.vue'
+   export default {
+  components: {
+      Home
+  },
+  computed: {
+    username() {
+      // We will see what `params` is shortly
+      return this.$route.params.username
     }
+  },
+  methods: {
+    goBack() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    }
+  }
+}
 </script>
